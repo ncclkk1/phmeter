@@ -1,4 +1,7 @@
-
+enum MyPort {
+    P0,
+    P1
+}
 namespace Newman {
     /**
      * ReadVoltage
@@ -8,13 +11,13 @@ namespace Newman {
         return pins.analogReadPin(AnalogPin.P0) / 1024 * 5000;
     }
 
-
+   
     /**
     * pHValue
     */
     //% blockId=pHValue block="Voltage At pH4 %Voltage_pH4|pH7 %Voltage_pH7"
     //%blockGap=2 weight=1
-    export function pH_Val(Voltage_pH4: number, Voltage_pH7: number): number {
+    export function pH_Val(Port: MyPort, Voltage_pH4: number, Voltage_pH7: number): number {
         let slope = 0;
         let Numberercept = 0;
         let phValue = 0;
