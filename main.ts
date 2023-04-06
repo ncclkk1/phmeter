@@ -15,7 +15,7 @@ namespace Newman {
     /**
     * pHValue
     */
-    //% blockId=pHValue block="Voltage At pH4 %Voltage_pH4|pH7 %Voltage_pH7"
+    //% blockId=pHValue block="Voltage At Port %Port|pH4 %Voltage_pH4|pH7 %Voltage_pH7"
     //%blockGap=2 weight=1
     export function pH_Val(Port: MyPort, Voltage_pH4: number, Voltage_pH7: number): number {
         let slope = 0;
