@@ -6,9 +6,14 @@ namespace Newman {
     /**
      * ReadVoltage
      */
-    //% blockId=ReadVoltage block="ReadVoltage"
-    export function ReadVolt(): number {
-        return pins.analogReadPin(AnalogPin.P0) / 1024 * 5000;
+    //% blockId=ReadVoltage block="ReadVoltage port %Port"
+    export function ReadVolt(Port: MyPort): number {
+        if (Port==0){
+            return pins.analogReadPin(AnalogPin.P0) / 1024 * 5000;
+        }else{
+            return pins.analogReadPin(AnalogPin.P1) / 1024 * 5000;
+        }
+        
     }
 
    
@@ -24,7 +29,11 @@ namespace Newman {
 
         slope = (7 - 4) / ((Voltage_pH7 - 1500) / 3 - (Voltage_pH4 - 1500) / 3);
         Numberercept = 7 - slope * (Voltage_pH7 - 1500) / 3;
-        phValue = slope * ((pins.analogReadPin(AnalogPin.P0) / 1024 * 5000) - 1500) / 3 + Numberercept;
+        if (Port == 0) {
+            phValue = slope * ((pins.analogReadPin(AnalogPin.P0) / 1024 * 5000) - 1500) / 3 + Numberercept;
+        }else{
+            phValue = slope * ((pins.analogReadPin(AnalogPin.P1) / 1024 * 5000) - 1500) / 3 + Numberercept;
+        }
         return Math.round(phValue);
     }
 
