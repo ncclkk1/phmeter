@@ -1,6 +1,8 @@
 enum MyPort {
     P0,
-    P1
+    P1,
+    P2,
+    P3
 }
 namespace Newman {
     /**
@@ -10,8 +12,12 @@ namespace Newman {
     export function ReadVolt(Port: MyPort): number {
         if (Port==0){
             return pins.analogReadPin(AnalogPin.P0) / 1024 * 5000;
-        }else{
+        } else if (Port == 1){
             return pins.analogReadPin(AnalogPin.P1) / 1024 * 5000;
+        } else if (Port == 2) {
+                return pins.analogReadPin(AnalogPin.P2) / 1024 * 5000;
+        }else{
+            return pins.analogReadPin(AnalogPin.P3) / 1024 * 5000;
         }
         
     }
@@ -31,9 +37,14 @@ namespace Newman {
         Numberercept = 7 - slope * (Voltage_pH7 - 1500) / 3;
         if (Port == 0) {
             phValue = slope * ((pins.analogReadPin(AnalogPin.P0) / 1024 * 5000) - 1500) / 3 + Numberercept;
-        }else{
+        } if (Port == 1) {
             phValue = slope * ((pins.analogReadPin(AnalogPin.P1) / 1024 * 5000) - 1500) / 3 + Numberercept;
+        } if (Port == 2) {
+            phValue = slope * ((pins.analogReadPin(AnalogPin.P2) / 1024 * 5000) - 1500) / 3 + Numberercept;
+        } else {
+            phValue = slope * ((pins.analogReadPin(AnalogPin.P3) / 1024 * 5000) - 1500) / 3 + Numberercept;
         }
+
         return Math.round(phValue);
     }
 
