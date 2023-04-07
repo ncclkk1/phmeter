@@ -37,17 +37,6 @@ namespace Newman {
         return Math.round(phValue);
     }
 
-    /**
-     * Test
-     */
-    //% blockId=Test block="Test port %Port"
-    export function Test(Port: MyPort): number {
-        if (Port == 0) {
-            return 0;
-        } else {
-            return 1;
-        }
-
-    }
+    
 
 }
