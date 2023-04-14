@@ -37,9 +37,9 @@ namespace Newman {
         Numberercept = 7 - slope * (Voltage_pH7 - 1500) / 3;
         if (Port == 0) {
             phValue = slope * ((pins.analogReadPin(AnalogPin.P0) / 1024 * 5000) - 1500) / 3 + Numberercept;
-        } if (Port == 1) {
+        } else if (Port == 1) {
             phValue = slope * ((pins.analogReadPin(AnalogPin.P1) / 1024 * 5000) - 1500) / 3 + Numberercept;
-        } if (Port == 2) {
+        } else if (Port == 2) {
             phValue = slope * ((pins.analogReadPin(AnalogPin.P2) / 1024 * 5000) - 1500) / 3 + Numberercept;
         } else {
             phValue = slope * ((pins.analogReadPin(AnalogPin.P3) / 1024 * 5000) - 1500) / 3 + Numberercept;
