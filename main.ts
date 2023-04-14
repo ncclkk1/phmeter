@@ -2,7 +2,7 @@ namespace Newman {
     /**
      * ReadVoltage
      */
-    //% blockId=ReadVoltage block="電壓-p1"
+    //% blockId=ReadVoltage block="電壓P1"
     export function ReadVolt(): number {
         return pins.analogReadPin(AnalogPin.P1) / 1024 * 5000;
     }
