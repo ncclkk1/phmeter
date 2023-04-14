@@ -18,9 +18,9 @@ namespace Newman {
         let Numberercept = 0;
         let phValue = 0;
 
-        slope = (7 - 4) / ((Voltage_pH7 - 1500) / 3 - (Voltage_pH4 - 1500) / 3);
-        Numberercept = 7 - slope * (Voltage_pH7 - 1500) / 3;
-        phValue = slope * ((pins.analogReadPin(AnalogPin.P1) / 1024 * 5000) - 1500) / 3 + Numberercept;
+        slope = (7.0 - 4.0) / ((Voltage_pH7 - 1500.0) / 3.0 - (Voltage_pH4 - 1500.0) / 3.0);
+        Numberercept = 7.0 - slope * (Voltage_pH7 - 1500.0) / 3.0;
+        phValue = slope * ((pins.analogReadPin(AnalogPin.P1) / 1024 * 5000) - 1500) / 3.0 + Numberercept;
 
         return Math.round(phValue);
     }
